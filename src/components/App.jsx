@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-    Link,
     Switch,
     Route,
     Redirect
@@ -10,6 +9,9 @@ import userService from '../utils/userService';
 import LandingPage from '../pages/LandingPage/LandingPage';
 import SignupPage from '../pages/SignupPage/SignupPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
+import SelfEvaluation from '../pages/SelfEvaluationPage/SelfEvaluation';
+import DashboardPage from '../pages/DashboardPage/DashboardPage';
+import Navbar from './NavBar/Navbar';
 
 class App extends Component {
     constructor(props) {
@@ -62,6 +64,25 @@ class App extends Component {
                                 handleLogin={this.handleLogin}
                             />
                         } />
+                        <Route exact path='/selfeval' render={() => (
+                            userService.getUser() ?
+                                <SelfEvaluation 
+                                    user={this.state.user}
+                                    handleLogout={this.handleLogout}
+                                />
+                            :
+                                <Redirect to='/login' />
+                        )} />
+
+                        <Route exact path='/dashboard' render={() => (
+                            userService.getUser() ?
+                                <DashboardPage 
+                                    user={this.state.user}
+                                    handleLogout={this.handleLogout}
+                                />
+                            :
+                                <Redirect to='/' />
+                        )} />
                     </Switch>
             </div>
         );

@@ -8,8 +8,12 @@ const NavBar = (props) => {
             {/* <Link to='/topscores' className='NavBar-link' >TOP SCORES</Link>
             &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; */}
             <Link to='' className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
             <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link to='/dashboard' className='NavBar-link'>DASHBOARD</Link>
+            &nbsp;&nbsp;|&nbsp;&nbsp;
+            <Link to='/' className='NavBar-link'>LANDING PAGE</Link>
         </div>
         :
         <div>
@@ -17,6 +21,7 @@ const NavBar = (props) => {
             &nbsp;&nbsp;|&nbsp;&nbsp;
             <Link to='/signup' className='NavBar-link'>SIGN UP</Link>
         </div>;
+
 
     return (
         <div className='NavBar'>

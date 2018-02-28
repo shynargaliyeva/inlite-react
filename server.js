@@ -13,9 +13,11 @@ app.use(logger('dev'));
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(require('./config/auth'));
 
 // Put API routes here
 app.use('/api/users', require('./routes/api/users'));
+
 
 // "catch-all" routes is necessary for a 
 //SPA's client-side routing to properly work
