@@ -5,9 +5,11 @@ const SALT_ROUNDS = 6;
 var userSchema = new mongoose.Schema({
     name: String,
     email: { type: String, required: true, lowercase: true, unique: true },
-    password: String
+    password: String,
+    movies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}],
+    selfeval: []
 }, {
-        timestamps: true
+    timestamps: true
     });
 
 userSchema.set('toJSON', {
