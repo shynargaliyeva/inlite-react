@@ -17,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Put API routes here
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/movies', require('./routes/api/movies'));
 
 
 // "catch-all" routes is necessary for a 

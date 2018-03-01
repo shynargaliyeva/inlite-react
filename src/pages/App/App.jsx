@@ -5,19 +5,19 @@ import {
     Redirect
 } from 'react-router-dom';
 import './App.css';
-import userService from '../utils/userService';
-import LandingPage from '../pages/LandingPage/LandingPage';
-import SignupPage from '../pages/SignupPage/SignupPage';
-import LoginPage from '../pages/LoginPage/LoginPage';
-import SelfEvaluation from '../pages/SelfEvaluationPage/SelfEvaluation';
-import DashboardPage from '../pages/DashboardPage/DashboardPage';
+import userService from '../../utils/userService';
+import LandingPage from '../LandingPage/LandingPage';
+import SignupPage from '../SignupPage/SignupPage';
+import LoginPage from  '../LoginPage/LoginPage';
+import SelfEvaluation from '../SelfEvaluationPage/SelfEvaluation';
+import DashboardPage from '../DashboardPage/DashboardPage';
 // import NavBar from './NavBar/Navbar';
 
 class App extends Component {
     constructor(props) {
         super();
         this.state = {
-
+        
         }
     }
 
@@ -40,6 +40,11 @@ class App extends Component {
     componentDidMount() {
         let user = userService.getUser();
         this.setState({user});
+
+        // fetch('/api/movies/dashboard')
+        //     .then(res => res.json())
+        //     .then(movies => this.setState({ movies }))
+        //     .catch(err => console.log(err))
     }
 
     render () {
