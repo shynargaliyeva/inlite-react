@@ -7,7 +7,7 @@ var userSchema = new mongoose.Schema({
     email: { type: String, required: true, lowercase: true, unique: true },
     password: String,
     movies: [{type: mongoose.Schema.Types.ObjectId, ref: 'Movie'}],
-    selfeval: []
+    selfeval: [{type: mongoose.Schema.Types.ObjectId, ref: 'SelfEval'}]
 }, {
     timestamps: true
     });

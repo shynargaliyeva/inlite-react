@@ -10,9 +10,13 @@ const DashboardPage = (props) => {
                 user={props.user}
                 handleLogout={props.handleLogout}
             />   
-            <h1>Movie Details</h1>
-            <hr/>   
+            <h3>Movie Details</h3>  
             <p>You must be logged in to see this! (protected route) </p>
+            <h4>Psychology</h4>
+            <h4>Instructions</h4>
+            <h4>Warning</h4>
+            <hr/>
+            <p>Movie grid</p>
         </div>
     )
 }

@@ -11,7 +11,7 @@ import SignupPage from '../pages/SignupPage/SignupPage';
 import LoginPage from '../pages/LoginPage/LoginPage';
 import SelfEvaluation from '../pages/SelfEvaluationPage/SelfEvaluation';
 import DashboardPage from '../pages/DashboardPage/DashboardPage';
-import Navbar from './NavBar/Navbar';
+// import NavBar from './NavBar/Navbar';
 
 class App extends Component {
     constructor(props) {

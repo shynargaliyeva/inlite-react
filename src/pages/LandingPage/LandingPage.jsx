@@ -3,7 +3,8 @@ import React from 'react';
 import './LandingPage.css';
 import NavBar from '../../components/NavBar/Navbar';
 
-const LandingPage = (props) => {
+
+const LandingPage = (props, movies) => {
     return (
     <div className='LandingPage'>
         <NavBar 
@@ -11,6 +12,7 @@ const LandingPage = (props) => {
             handleLogout={props.handleLogout}
         />   
         <h2>Watch Movies for good</h2>
+        
     </div>
     )
 }
