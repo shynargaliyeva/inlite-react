@@ -1,54 +1,47 @@
 import React, { Component } from 'react';
 import './DashboardPage.css';
-import MovieDetails from '../../components/MovieDetails/MovieDetails'
+import MovieList from '../../components/MovieList/MovieList';
 import NavBar from '../../components/NavBar/Navbar';
+import MovieDetails from '../../components/MovieDetails/MovieDetails';
+// import { Route } from 'react-router-dom';
 
 class DashboardPage extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
-            movies: []
+            selectedMovie: null,
         }
     }
 
-    componentDidMount() {
-        fetch("api/movies/dashboard")
-            .then(res => res.json())
-            .then(movies => this.setState({ movies }))
-            .catch(err => console.log(err))
+    handleSelectMovie = (id) => {
+        this.setState({
+            selectedMovie: this.props.movies.find(m => m._id === id)
+        })
     }
-    render() {
+
+    render () {
         return (
             <div className="DashboardPage">
                 <NavBar
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />
-                <MovieDetails 
-                    movies={this.state.movies}
-                />  
+                <div className="MovieDetails">
+                    {this.state.selectedMovie && <MovieDetails selectedMovie={this.state.selectedMovie} /> } 
+                </div>
+                <div className='vertical-center flex-center-center'>
+                    <MovieList 
+                        movies={this.props.movies}
+                        handleSelectMovie={this.handleSelectMovie}
+                        selectedMovie={this.state.selectedMovie}
+                    />
+                </div>
             </div>
         )
     }
 }
 
 
-// const DashboardPage = (props) => {
-//     return (
-//         <div className='DashboardPage'>
-//             <NavBar
-//                 user={props.user}
-//                 handleLogout={props.handleLogout}
-//             />   
-//             <h3>Movie Details</h3>  
-//             <p>You must be logged in to see this! (protected route) </p>
-//             <h4>Psychology</h4>
-//             <h4>Instructions</h4>
-//             <h4>Warning</h4>
-//             <hr/>
-//             <p>Movie grid</p>
-//         </div>
-//     )
-// }
+
 
 export default DashboardPage;

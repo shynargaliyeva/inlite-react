@@ -15,9 +15,9 @@ import DashboardPage from '../DashboardPage/DashboardPage';
 
 class App extends Component {
     constructor(props) {
-        super();
+        super(props);
         this.state = {
-        
+            movies: [],
         }
     }
 
@@ -34,61 +34,60 @@ class App extends Component {
         this.setState({ user: userService.getUser() });
     }
 
-
     /*------- Lifecycle Methods -------*/
 
     componentDidMount() {
         let user = userService.getUser();
         this.setState({user});
 
-        // fetch('/api/movies/dashboard')
-        //     .then(res => res.json())
-        //     .then(movies => this.setState({ movies }))
-        //     .catch(err => console.log(err))
+        fetch('/api/movies/dashboard')
+            .then(res => res.json())
+            .then(movies => this.setState({ movies }))
+            .catch(err => console.log(err))
     }
 
     render () {
         return (
             <div className='App'>
-                <header className='header-footer'>INLITE</header>
-                <br/>
-                    <Switch>
-                        <Route exact path='/' render={() => 
-                            <LandingPage 
+                <Switch>
+                    <Route exact path='/' render={() => 
+                        <LandingPage 
+                            user={this.state.user}
+                            handleLogout={this.handleLogout}
+                        /> 
+                    }/>
+                    <Route exact path='/signup' render={(props) =>
+                        <SignupPage {...props}
+                            handleSignup={this.handleSignup}
+                        />
+                    } />
+                    <Route exact path='/login' render={(props) =>
+                        <LoginPage {...props}
+                            handleLogin={this.handleLogin}
+                        />
+                    } />
+                    <Route exact path='/selfeval' render={() => (
+                        userService.getUser() ?
+                            <SelfEvaluation 
                                 user={this.state.user}
                                 handleLogout={this.handleLogout}
-                            /> 
-                        }/>
-                        <Route exact path='/signup' render={(props) =>
-                            <SignupPage {...props}
-                                handleSignup={this.handleSignup}
                             />
-                        } />
-                        <Route exact path='/login' render={(props) =>
-                            <LoginPage {...props}
-                                handleLogin={this.handleLogin}
-                            />
-                        } />
-                        <Route exact path='/selfeval' render={() => (
-                            userService.getUser() ?
-                                <SelfEvaluation 
-                                    user={this.state.user}
-                                    handleLogout={this.handleLogout}
-                                />
-                            :
-                                <Redirect to='/login' />
-                        )} />
+                        :
+                            <Redirect to='/login' />
+                    )} />
 
-                        <Route exact path='/dashboard' render={() => (
-                            userService.getUser() ?
-                                <DashboardPage 
-                                    user={this.state.user}
-                                    handleLogout={this.handleLogout}
-                                />
-                            :
-                                <Redirect to='/' />
-                        )} />
-                    </Switch>
+                    <Route exact path='/dashboard' render={(props) => (
+                        userService.getUser() ?
+                            <DashboardPage 
+                                user={this.state.user}
+                                handleLogout={this.handleLogout}
+                                movies={this.state.movies}
+                                handleSelectMovie={this.handleSelectMovie}
+                            />
+                        :
+                            <Redirect to='/' />
+                    )} />
+                </Switch>
             </div>
         );
     }

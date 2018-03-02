@@ -1,4 +1,4 @@
-body {
+/* body {
   margin: 0;
   padding: 0;
   display: flex;
@@ -6,16 +6,17 @@ body {
   justify-content: center;
   align-items: center;
   font-family: 'Lato', sans-serif;
-}
+  width: 100vw;
+} */
 
-.header-footer {
+/* .header-footer {
   height: 50px;
   padding: 10px;
   margin: 15px 0;
   color: #262626;
   font-size: 26px;
   text-align: center;
-}
+} */
 
 /* .cancel-btn {
   width: 100px;
