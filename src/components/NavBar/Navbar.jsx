@@ -9,7 +9,10 @@ const NavBar = (props) => {
             {/* <Link to='/topscores' className='NavBar-link' >TOP SCORES</Link>
             &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; */}
             <NavItem>
-                <span className='NavBar-welcome'>WELCOME, {props.user.name}</span>
+                <span className='NavBar-welcome'>{props.user.name}'s Profile</span>
+            </NavItem>
+            <NavItem>
+                <Link to='/selfeval' className='NavBar-link'>SELF EVALUATION</Link>
             </NavItem>
             <NavItem>
                 <Link to='/dashboard' className='NavBar-link'>DASHBOARD</Link>

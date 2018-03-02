@@ -1,19 +1,94 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './SelfEvaluationPage.css';
+import { Row, Input, Button } from 'react-materialize';
+import NavBar from '../../components/NavBar/Navbar';
 
+let questions = [
+    "Feeling nervous, anxious, on edge?",
+    "Can't stop worrying?",
+    "Feeling down, depressed, hopeless?",
+    "No interest or pleasure in life?"
+]
 
-const SelfEvaluationPage = (props) => {
-    return (
-        <div className='SelfEvaluationPage'>
-            <h3>Answer Self Evaluation Questions</h3>
-            <ul>
-                <li>Feeling nervous, anxious, on edge?</li>
-                <li>Can't stop worrying?</li>
-                <li>Feeling down, depressed, hopeless?</li>
-                <li>No interest or pleasure in life?</li>
-            </ul>
-        </div>
+class SelfEvaluationPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            q1: null,
+            q2: null,
+            q3: null,
+            q4: null
+        }
+    }
+
+    onChangeSelfEvalQ1 = (e) => {
+        this.setState({ q1: e.target.value })
+    }
+    onChangeSelfEvalQ2 = (e) => {
+        this.setState({ q2: e.target.value })
+    }
+    onChangeSelfEvalQ3 = (e) => {
+        this.setState({ q3: e.target.value })
+    }
+    onChangeSelfEvalQ4 = (e) => {
+        this.setState({ q4: e.target.value })
+    }
+
+    /*------- Lifecycle Methods -------*/
+
+    componentDidMount() {
+
+    }
+    render() {
+        return (
+            <div className='SelfEvaluationPage'>
+                <NavBar
+                user={this.props.user}
+                handleLogout={this.props.handleLogout}
+                />  
+                <h3>Self Evaluation</h3>
+                <div className="Selfeval-text">
+                    <p>Over the past 2 weeks have you been bothered by these problems? Answering these question will help you track your progress</p>
+                </div>
+                <div className="container">
+                
+                <Row>
+                    <Input s={8} type='select' label={questions[0]} onChange={this.onChangeSelfEvalQ1} defaultValue='0'>
+                        <option value={0}>Not At All</option>
+                        <option value={1}>Some Days</option>
+                        <option value={2}>Every Day</option>
+                    </Input>
+                </Row>
+                <Row>
+                    <Input s={8} type='select' label={questions[1]} onChange={this.onChangeSelfEvalQ2} defaultValue='0'>
+                        <option value={0}>Not At All</option>
+                        <option value={1}>Some Days</option>
+                        <option value={2}>Every Day</option>
+                    </Input>
+                </Row>
+                <Row>
+                    <Input s={8} type='select' label={questions[2]} onChange={this.onChangeSelfEvalQ3} defaultValue='0'>
+                        <option value={0}>Not At All</option>
+                        <option value={1}>Some Days</option>
+                        <option value={2}>Every Day</option>
+                    </Input>
+                </Row>
+                <Row>
+                    <Input s={8} type='select' label={questions[3]} onChange={this.onChangeSelfEvalQ4} defaultValue='0'>
+                        <option value={0}>Not At All</option>
+                        <option value={1}>Some Days</option>
+                        <option value={2}>Every Day</option>
+                    </Input>
+                </Row>
+                <div className="SelfEval-button">
+                    <Button type="submit" onClick={() => alert('clicked!')}>GET STARTED</Button>
+                </div>
+                </div>
+        
+            </div>
     )
+}
+ 
 }
 
 export default SelfEvaluationPage;

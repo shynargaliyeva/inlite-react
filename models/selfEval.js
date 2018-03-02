@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const selfEvalSchema = new Schema ({
-    q1: Number,
-    q2: Number,
-    q3: Number,
-    q4: Number
+    q1: {type: Number, min: 0, max: 2},
+    q2: {type: Number, min: 0, max: 2},
+    q3: {type: Number, min: 0, max: 2},
+    q4: {type: Number, min: 0, max: 2},
 }, {
     timestamps: true
 })

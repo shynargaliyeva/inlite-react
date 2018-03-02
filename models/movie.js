@@ -12,7 +12,9 @@ const movieSchema = new Schema ({
     learn: String,
     warning: String,
     image: String,
-    level: []
+    levelOne: Boolean,
+    levelTwo: Boolean,
+    levelThree: Boolean
 })
 
 module.exports = mongoose.model('Movie', movieSchema);
