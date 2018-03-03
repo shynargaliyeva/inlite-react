@@ -18,7 +18,8 @@ class App extends Component {
         super(props);
         this.state = {
             movies: [],
-            depScore: null
+            depScore: null,
+
         }
     }
 
@@ -72,6 +73,7 @@ class App extends Component {
                             <SelfEvaluation 
                                 user={this.state.user}
                                 handleLogout={this.handleLogout}
+                                depScore={this.state.depScore}
                             />
                         :
                             <Redirect to='/login' />

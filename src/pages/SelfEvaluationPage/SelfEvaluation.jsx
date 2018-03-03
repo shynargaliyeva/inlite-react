@@ -14,6 +14,7 @@ class SelfEvaluationPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            depScore: null,
             q1: null,
             q2: null,
             q3: null,
@@ -34,17 +35,34 @@ class SelfEvaluationPage extends Component {
         this.setState({ q4: e.target.value })
     }
 
+    addSelfEval = (e) => {
+        e.preventDefault();
+        fetch('/api/users/selfeval', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                q1: this.state.q1,
+                q2: this.state.q2,
+                q3: this.state.q3,
+                q4: this.state.q4
+            })
+        })
+        .then(data => data.json())
+        .then((depScore) => {
+            this.setState({ depScore: depScore})
+        })
+        .catch(err => console.log(err))
+    }
     /*------- Lifecycle Methods -------*/
 
-    componentDidMount() {
-
-    }
     render() {
         return (
             <div className='SelfEvaluationPage'>
                 <NavBar
-                user={this.props.user}
-                handleLogout={this.props.handleLogout}
+                    user={this.props.user}
+                    handleLogout={this.props.handleLogout}
                 />  
                 <h3>Self Evaluation</h3>
                 <div className="Selfeval-text">
@@ -81,7 +99,7 @@ class SelfEvaluationPage extends Component {
                     </Input>
                 </Row>
                 <div className="SelfEval-button">
-                    <Button type="submit" onClick={() => alert('clicked!')}>GET STARTED</Button>
+                    <Button type="submit" onClick={this.addSelfEval}>GET STARTED</Button>
                 </div>
                 </div>
         
