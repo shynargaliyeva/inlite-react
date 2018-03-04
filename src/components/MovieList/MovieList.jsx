@@ -2,7 +2,7 @@ import React from 'react';
 import './MovieList.css';
 
 
-const MovieDetails = ({ movies, handleSelectMovie}) => {
+const MovieList = ({ movies, handleSelectMovie}) => {
 
     return (
         <div className="container">
@@ -17,5 +17,4 @@ const MovieDetails = ({ movies, handleSelectMovie}) => {
         </div>
     )
 }
-
-export default MovieDetails;
+export default MovieList;

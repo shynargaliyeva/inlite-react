@@ -6,6 +6,6 @@ var usersCtrl = require('../../controllers/users');
 /* --------- Public Routes --------- */
 router.post('/signup', usersCtrl.signup);
 router.post('/login', usersCtrl.login);
-router.post('/selfeval', usersCtrl.selfEval);
+router.post('/selfeval', usersCtrl.getSelfEval);
 
 module.exports = router;

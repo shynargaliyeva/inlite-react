@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SelfEvaluationPage.css';
 import { Row, Input, Button } from 'react-materialize';
 import NavBar from '../../components/NavBar/Navbar';
+// import SelfEval from '../../components/SelfEval/SelfEval';
 
 let questions = [
     "Feeling nervous, anxious, on edge?",
@@ -18,7 +19,8 @@ class SelfEvaluationPage extends Component {
             q1: null,
             q2: null,
             q3: null,
-            q4: null
+            q4: null,
+            selfEval: []
         }
     }
 
@@ -51,11 +53,19 @@ class SelfEvaluationPage extends Component {
         })
         .then(data => data.json())
         .then((depScore) => {
-            this.setState({ depScore: depScore})
+            this.setState({ 
+                depScore: depScore,
+            })
         })
         .catch(err => console.log(err))
     }
     /*------- Lifecycle Methods -------*/
+    componentDidMount() {
+        fetch('/api/users/selfeval')
+            .then(res => res.json())
+            .then(selfEval => {this.setState({ selfEval })})
+            .catch(err => console.log(err))
+    }
 
     render() {
         return (
@@ -64,48 +74,52 @@ class SelfEvaluationPage extends Component {
                     user={this.props.user}
                     handleLogout={this.props.handleLogout}
                 />  
-                <h3>Self Evaluation</h3>
-                <div className="Selfeval-text">
-                    <p>Over the past 2 weeks have you been bothered by these problems? Answering these question will help you track your progress</p>
+                <div className="SelfEval-text">
+                    <h3>Self Evaluation</h3>
+                    <p className="flow-text">Over the past 2 weeks have you been bothered by these problems? <br/> 
+                        Answering these question will help you track your progress</p>
                 </div>
                 <div className="container">
-                
-                <Row>
-                    <Input s={8} type='select' label={questions[0]} onChange={this.onChangeSelfEvalQ1} defaultValue='0'>
-                        <option value={0}>Not At All</option>
-                        <option value={1}>Some Days</option>
-                        <option value={2}>Every Day</option>
-                    </Input>
-                </Row>
-                <Row>
-                    <Input s={8} type='select' label={questions[1]} onChange={this.onChangeSelfEvalQ2} defaultValue='0'>
-                        <option value={0}>Not At All</option>
-                        <option value={1}>Some Days</option>
-                        <option value={2}>Every Day</option>
-                    </Input>
-                </Row>
-                <Row>
-                    <Input s={8} type='select' label={questions[2]} onChange={this.onChangeSelfEvalQ3} defaultValue='0'>
-                        <option value={0}>Not At All</option>
-                        <option value={1}>Some Days</option>
-                        <option value={2}>Every Day</option>
-                    </Input>
-                </Row>
-                <Row>
-                    <Input s={8} type='select' label={questions[3]} onChange={this.onChangeSelfEvalQ4} defaultValue='0'>
-                        <option value={0}>Not At All</option>
-                        <option value={1}>Some Days</option>
-                        <option value={2}>Every Day</option>
-                    </Input>
-                </Row>
-                <div className="SelfEval-button">
-                    <Button type="submit" onClick={this.addSelfEval}>GET STARTED</Button>
+                    <div className="SelfEval-form">
+                        <Row>
+                            <Input s={8} type='select' label={questions[0]} onChange={this.onChangeSelfEvalQ1} defaultValue='0'>
+                                <option value={0}>Not At All</option>
+                                <option value={1}>Some Days</option>
+                                <option value={2}>Every Day</option>
+                            </Input>
+                        </Row>
+                        <Row>
+                            <Input s={8} type='select' label={questions[1]} onChange={this.onChangeSelfEvalQ2} defaultValue='0'>
+                                <option value={0}>Not At All</option>
+                                <option value={1}>Some Days</option>
+                                <option value={2}>Every Day</option>
+                            </Input>
+                        </Row>
+                        <Row>
+                            <Input s={8} type='select' label={questions[2]} onChange={this.onChangeSelfEvalQ3} defaultValue='0'>
+                                <option value={0}>Not At All</option>
+                                <option value={1}>Some Days</option>
+                                <option value={2}>Every Day</option>
+                            </Input>
+                        </Row>
+                        <Row>
+                            <Input s={8} type='select' label={questions[3]} onChange={this.onChangeSelfEvalQ4} defaultValue='0'>
+                                <option value={0}>Not At All</option>
+                                <option value={1}>Some Days</option>
+                                <option value={2}>Every Day</option>
+                            </Input>
+                        </Row>
+                            <div className="text-center">
+                                <Button waves="light" type="submit" onClick={this.addSelfEval}>GET STARTED</Button>
+                            </div>
+                    </div>
                 </div>
-                </div>
-        
+                {/* <div>
+                    <SelfEval selfEval={this.state.selfEval} />
+                </div> */}
             </div>
-    )
-}
+        )
+    }
  
 }
 

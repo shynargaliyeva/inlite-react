@@ -15,7 +15,8 @@ class DashboardPage extends Component {
 
     handleSelectMovie = (id) => {
         this.setState({
-            selectedMovie: this.props.movies.find(m => m._id === id)
+            selectedMovie: this.props.movies.find(m => m._id === id),
+            // setState to filtered movies
         })
     }
 

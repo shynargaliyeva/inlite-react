@@ -1,3 +1,32 @@
-label {
-    font-size: 16px;
+.SelfEval-text {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 30vh;
+    font-family: 'Lato', sans-serif;
+    margin-top: 20px;
+}
+
+.SelfEval-form {
+    margin-left: 22%;
+    width: 60vw;
+}
+
+.input-field label:not(.label-icon).active {
+    font-size: 1.3rem;
+    color: #263238;
+}
+.SelfEval-button{
+}
+
+.btn {
+    background-color: #FF9681;
+    border-radius: 30px;
+}
+
+.btn:hover {
+  background-color: #FF9681;
+}
+
+.dropdown-content.select-dropdown.active {
+    color: #262626;
 }

@@ -6,7 +6,7 @@ var SECRET = process.env.SECRET;
 module.exports = {
     signup,
     login,
-    selfEval
+    getSelfEval
 }
 
 function signup(req, res) {
@@ -43,8 +43,7 @@ function createJWT(user) {
 }
 
 // SelfEval functions
-
-function selfEval(req, res) {
+function getSelfEval(req, res) {
     let selfEval = new SelfEval;
     selfEval.q1 = req.body.q1
     selfEval.q2 = req.body.q2
@@ -53,7 +52,13 @@ function selfEval(req, res) {
 
     selfEval.save((err) => {
         console.log(selfEval.depScore)
-        res.json('this worked').status(200)
+        res.json(selfEval.depScore).status(200)
     })
+}
+
+function selfEval(req, res) {
+    SelfEval.find({})
+        .then((se) => res.json(se).status(200))
+        .then(err => console.log(err));
 }
 

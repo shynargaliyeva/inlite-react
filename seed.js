@@ -125,6 +125,6 @@ Movie.remove({})
         ])
     })
     .then(function (movies) {
-        console.log(movies);
+        // console.log(movies);
         process.exit();
     })
