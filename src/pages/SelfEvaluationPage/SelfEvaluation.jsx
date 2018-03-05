@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './SelfEvaluationPage.css';
 import { Row, Input, Button } from 'react-materialize';
 import NavBar from '../../components/NavBar/Navbar';
+import tokenService from '../../utils/tokenService';
 // import SelfEval from '../../components/SelfEval/SelfEval';
 
 let questions = [
@@ -42,7 +43,8 @@ class SelfEvaluationPage extends Component {
         fetch('/api/users/selfeval', {
             method: 'POST',
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${tokenService.getToken()}` 
             },
             body: JSON.stringify({
                 q1: this.state.q1,
@@ -52,10 +54,8 @@ class SelfEvaluationPage extends Component {
             })
         })
         .then(data => data.json())
-        .then((depScore) => {
-            this.setState({ 
-                depScore: depScore,
-            })
+        .then((evals) => {
+            this.props.handleUpdatedSelfEvals(evals)
         })
         .catch(err => console.log(err))
     }
@@ -82,7 +82,7 @@ class SelfEvaluationPage extends Component {
                 <div className="container">
                     <div className="SelfEval-form">
                         <Row>
-                            <Input s={8} type='select' label={questions[0]} onChange={this.onChangeSelfEvalQ1} defaultValue='0'>
+                            <Input className="selection" s={8} type='select' label={questions[0]} onChange={this.onChangeSelfEvalQ1} defaultValue='0'>
                                 <option value={0}>Not At All</option>
                                 <option value={1}>Some Days</option>
                                 <option value={2}>Every Day</option>
@@ -109,7 +109,7 @@ class SelfEvaluationPage extends Component {
                                 <option value={2}>Every Day</option>
                             </Input>
                         </Row>
-                            <div className="text-center">
+                            <div className="SelfEval-button">
                                 <Button waves="light" type="submit" onClick={this.addSelfEval}>GET STARTED</Button>
                             </div>
                     </div>
@@ -118,6 +118,55 @@ class SelfEvaluationPage extends Component {
                     <SelfEval selfEval={this.state.selfEval} />
                 </div> */}
             </div>
+            // <div className='SelfEvaluationPage'>
+            //     <NavBar
+            //         user={this.props.user}
+            //         handleLogout={this.props.handleLogout}
+            //     />  
+            //     <div className="SelfEval-text">
+            //         <h3>Self Evaluation</h3>
+            //         <p className="flow-text">Over the past 2 weeks have you been bothered by these problems? <br/> 
+            //             Answering these question will help you track your progress</p>
+            //     </div>
+            //     <div className="container">
+            //         <div className="SelfEval-form">
+            //             <Row>
+            //                 <Input s={8} type='select' label={questions[0]} onChange={this.onChangeSelfEvalQ1} defaultValue='0'>
+            //                     <option value={0}>Not At All</option>
+            //                     <option value={1}>Some Days</option>
+            //                     <option value={2}>Every Day</option>
+            //                 </Input>
+            //             </Row>
+            //             <Row>
+            //                 <Input s={8} type='select' label={questions[1]} onChange={this.onChangeSelfEvalQ2} defaultValue='0'>
+            //                     <option value={0}>Not At All</option>
+            //                     <option value={1}>Some Days</option>
+            //                     <option value={2}>Every Day</option>
+            //                 </Input>
+            //             </Row>
+            //             <Row>
+            //                 <Input s={8} type='select' label={questions[2]} onChange={this.onChangeSelfEvalQ3} defaultValue='0'>
+            //                     <option value={0}>Not At All</option>
+            //                     <option value={1}>Some Days</option>
+            //                     <option value={2}>Every Day</option>
+            //                 </Input>
+            //             </Row>
+            //             <Row>
+            //                 <Input s={8} type='select' label={questions[3]} onChange={this.onChangeSelfEvalQ4} defaultValue='0'>
+            //                     <option value={0}>Not At All</option>
+            //                     <option value={1}>Some Days</option>
+            //                     <option value={2}>Every Day</option>
+            //                 </Input>
+            //             </Row>
+            //                 <div className="SelfEval-button">
+            //                     <Button waves="light" type="submit" onClick={this.addSelfEval}>GET STARTED</Button>
+            //                 </div>
+            //         </div>
+            //     </div>
+            //     {/* <div>
+            //         <SelfEval selfEval={this.state.selfEval} />
+            //     </div> */}
+            // </div>
         )
     }
  

@@ -1,3 +1,5 @@
+
+
 .SelfEval-text {
     display: flex;
     flex-flow: column nowrap;
@@ -15,8 +17,6 @@
     font-size: 1.3rem;
     color: #263238;
 }
-.SelfEval-button{
-}
 
 .btn {
     background-color: #FF9681;
@@ -27,6 +27,14 @@
   background-color: #FF9681;
 }
 
-.dropdown-content.select-dropdown.active {
+ul#select-options-1941ba7f-4e94-535f-e4c4-01252d1be638, li {
     color: #262626;
 }
+
+/* .SelfEval-button {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+} */
+
+

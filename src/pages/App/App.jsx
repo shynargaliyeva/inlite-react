@@ -11,6 +11,7 @@ import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from  '../LoginPage/LoginPage';
 import SelfEvaluation from '../SelfEvaluationPage/SelfEvaluation';
 import DashboardPage from '../DashboardPage/DashboardPage';
+import tokenService from '../../utils/tokenService';
 // import NavBar from './NavBar/Navbar';
 
 class App extends Component {
@@ -19,6 +20,7 @@ class App extends Component {
         this.state = {
             movies: [],
             depScore: null,
+            evals: []
         }
     }
 
@@ -35,6 +37,14 @@ class App extends Component {
         this.setState({ user: userService.getUser() });
     }
 
+    handleUpdatedSelfEvals = (evals) => {
+        this.setState({
+            evals,
+            depScore: evals[evals.length -1].depScore
+        });
+        this.props.history.push('/dashboard');
+    }   
+
     /*------- Lifecycle Methods -------*/
 
     componentDidMount() {
@@ -45,6 +55,19 @@ class App extends Component {
             .then(res => res.json())
             .then(movies => this.setState({ movies }))
             .catch(err => console.log(err))
+
+        fetch('/api/users/userevals', {
+            headers: {
+                "Authorization": `Bearer ${tokenService.getToken()}`
+            }
+        }).then(res => res.json())
+        .then(evals => {
+            this.setState({
+                evals,
+                depScore: evals[evals.length - 1].depScore
+            });
+        })
+
     }
 
     render () {
@@ -67,13 +90,13 @@ class App extends Component {
                             handleLogin={this.handleLogin}
                         />
                     } />
-                    <Route exact path='/selfeval' render={() => (
+                    <Route exact path='/selfeval' render={(props) => (
                         userService.getUser() ?
                             <SelfEvaluation 
                                 user={this.state.user}
                                 handleLogout={this.handleLogout}
                                 depScore={this.state.depScore}
-                                // selfEval={this.state.selfEval}
+                                handleUpdatedSelfEvals={this.handleUpdatedSelfEvals}
                             />
                         :
                             <Redirect to='/login' />

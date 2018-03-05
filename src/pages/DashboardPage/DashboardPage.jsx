@@ -3,6 +3,7 @@ import './DashboardPage.css';
 import MovieList from '../../components/MovieList/MovieList';
 import NavBar from '../../components/NavBar/Navbar';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
+// import {Tabs, Tab} from 'react-materialize';
 // import { Route } from 'react-router-dom';
 
 class DashboardPage extends Component {

@@ -6,7 +6,8 @@ var SECRET = process.env.SECRET;
 module.exports = {
     signup,
     login,
-    getSelfEval
+    getSelfEval,
+    userEvals
 }
 
 function signup(req, res) {
@@ -52,13 +53,23 @@ function getSelfEval(req, res) {
 
     selfEval.save((err) => {
         console.log(selfEval.depScore)
-        res.json(selfEval.depScore).status(200)
+        User.findById(req.user._id)
+            .then(user => {
+                user.selfevals.push(selfEval);
+                user.save().then(() => {
+                    user.populate('selfevals', () => {
+                        res.json(user.selfevals)
+                    })
+                })
+            })
     })
 }
 
-function selfEval(req, res) {
-    SelfEval.find({})
-        .then((se) => res.json(se).status(200))
-        .then(err => console.log(err));
+function userEvals(req, res) {
+    User.findById(req.user._id)
+    .populate('selfevals').exec()
+    .then(user => {
+        res.json(user.selfevals);
+    });
 }
 

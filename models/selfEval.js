@@ -7,7 +7,10 @@ const selfEvalSchema = new Schema ({
     q3: {type: Number, min: 0, max: 2},
     q4: {type: Number, min: 0, max: 2},
 }, {
-    timestamps: true
+    timestamps: true,
+    toJSON: {
+        virtuals: true
+    }
 })
 
 // virtual property to sum up the depScore

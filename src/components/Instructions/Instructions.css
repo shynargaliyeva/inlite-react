@@ -1,0 +1,26 @@
+h3 {
+    text-align: center;
+    text-transform: uppercase;
+    color: #FF9186;
+    font-weight: bold;
+}
+
+.Instructions-p1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.span1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.ul1 {
+    font-family: 'Karma', serif;
+    font-size: 20px;
+    color: #FF9186;
+}

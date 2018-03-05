@@ -1,9 +1,14 @@
+.flex-center-center {
+  margin-right: 7%;
+}
+
 .MovieList-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 0 30px;
     text-align: center;
-    width: 50vw;
+    width: 60vw;
+    
 }
 
 img.Movie-image {
