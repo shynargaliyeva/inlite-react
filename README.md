@@ -1,7 +1,7 @@
 # Inlite
 
 ## About
-This project was built as a recommendation engine that filters your movie recs based on a psychological analysis done by lisenced professioanls and a depression score computed from a self-evaluation test. The ultimate goal is to build to the worlds first streaming entertainment platform with integrated therapeutic chatbot and make Inlite a safe place for watching movies to help manage mental health.
+This project was built as a recommendation engine that filters your movie recs based on a psychological analysis done by lisenced professioanls and a depression score computed from a self-evaluation test. The ultimate goal is to build the worlds first streaming entertainment platform with integrated therapeutic chatbot and make Inlite a safe place for watching movies to help manage mental health.
 
 ![UI Screenshot](https://i.imgur.com/LOzbtL3.png)
 ![UI Screenshot](https://i.imgur.com/zymvIqm.png)
@@ -19,7 +19,7 @@ This project was built as a recommendation engine that filters your movie recs b
 
 ## Getting Started
 
-Link to **[Trello board](https://trello.com/b/LrWaPHwh/dassit-music-db)**.
+Link to **[Trello board](https://trello.com/b/RFm9CDpZ/inlite)**.
 
 Try it out **[here](https://inlite.herokuapp.com/)**!
 
