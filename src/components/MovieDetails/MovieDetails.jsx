@@ -15,7 +15,7 @@ const MovieDetails = (props) => {
             </div>
             <div className='Movie-tab'>
                 <Tabs className='tab-MovieDetails'>
-                    <Tab title="Movie" active>
+                    <Tab title="Movie">
                         <div className='Movie-div'>
                             <div className="mainDetails">
                                 <span className='p1'>{props.selectedMovie.title}</span><br/>
@@ -29,10 +29,10 @@ const MovieDetails = (props) => {
                             </div>
                         </div>
                     </Tab>
+                    <Tab title="Instructions" active><Instructions /></Tab>
                     <Tab title="Psychology">
                          <Psychology selectedMovie={props.selectedMovie} />
                     </Tab>
-                    <Tab title="Instructions"><Instructions /></Tab>
                     <Tab title="Warning"><Warning selectedMovie={props.selectedMovie}/></Tab>
                 </Tabs>
             </div>
