@@ -1,8 +1,7 @@
 import React from 'react';
-// import {Link} from 'react-route  r-dom';
 import './LandingPage.css';
 import NavBar from '../../components/NavBar/Navbar';
-import {Button, Link} from 'react-materialize';
+// import {Button, Link} from 'react-materialize';
 
 
 const LandingPage = (props, movies) => {
@@ -20,7 +19,7 @@ const LandingPage = (props, movies) => {
                 <span className='LP-span1'>Watch Movies for</span><br/><span className='LP-span2'>good</span>
             </div>
             <div className='LP-button'>
-                {/* <Button waves="light" type="submit">GET STARTED</Button> */}
+                {/* <Link to='/signup'><Button waves="light" type="submit">GET STARTED</Button></Link> */}
             </div>
 
         </div>

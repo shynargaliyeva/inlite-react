@@ -13,7 +13,7 @@ const MovieDetails = (props) => {
             <div className="MovieDetails-image">
                 <img className="SelectedMovie-image" alt="Movie poster" src={props.selectedMovie.image} />
             </div>
-            <div className='Movie-tab'>
+            <div className='MovieDetails-Tab'>
                 <Tabs className='tab-MovieDetails'>
                     <Tab title="Movie">
                         <div className='Movie-div'>

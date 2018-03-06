@@ -26,9 +26,8 @@ Try it out **[here](https://inlite.herokuapp.com/)**!
 
 ### Unresolved issues
 
-1. Admin user: add admin user, so that moviescan be added to the database by admin/psychologist. (right now 9 movies are seeded).
+1. Admin user: add admin user, so that movies can be added to the database by admin/psychologist. (right now 9 movies are seeded).
 2. Style: Continue styling to get closer to the wireframes design.
-
 
 
 ## Next Steps
@@ -37,7 +36,6 @@ Trello board will show a long list of Iceboxed features, to name a few:
 * Login with social media account.
 * Depression meter for each movie. (Like Rotten Tomatoes)
 * CBT chatbot.
-
 
 
 ## Acknowledgments

@@ -20,8 +20,6 @@ const NavBar = (props) => {
                     <Link to='' className='NavBar-link' onClick={props.handleLogout} >LOG OUT</Link>
                 </li>
             </ul>
-            {/* <Link to='/topscores' className='NavBar-link' >TOP SCORES</Link>
-            &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; */}
         </div>
         :
         <div>
