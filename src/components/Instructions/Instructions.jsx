@@ -6,7 +6,7 @@ const Instructions = (props) => {
         <div className='Instructions'>
             <h3>PREP</h3>
             <span className='Instructions-p1'>while you're watching the movie</span><br/>
-            <span className='span1'>take notes about</span>
+            <span className='span1'>take notes on</span>
             <div className='Instrustions-list'>
                 <ul className='ul1'>
                     Scenes that trigger your past memories
@@ -15,7 +15,7 @@ const Instructions = (props) => {
                     Things you like or dislike in the movie
                 </ul>
                 <ul className='ul1'>
-                    Track your emotions and what triggers them
+                    Emotions(be specific) and what triggers them
                 </ul>
             </div>
             <div>

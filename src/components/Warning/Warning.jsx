@@ -12,4 +12,4 @@ const Warning = ({selectedMovie}) => {
     )
 }
 
-export default Warning;
+export default Warning; 

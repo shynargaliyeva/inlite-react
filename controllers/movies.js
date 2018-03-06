@@ -1,4 +1,6 @@
 const Movie = require('../models/movie');
+const User = require('../models/user');
+const SelfEval = require('../models/selfEval');
 
 function index(req, res) {
     Movie.find({})
@@ -7,7 +9,6 @@ function index(req, res) {
 }
 
 function show(req, res) {
-    console.log(req.params.id)
     Movie.findById(req.params.id)
         .then((movie) => res.json(user).status(200))
         .catch(err => console.log(err))

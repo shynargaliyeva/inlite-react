@@ -3,22 +3,43 @@ import './DashboardPage.css';
 import MovieList from '../../components/MovieList/MovieList';
 import NavBar from '../../components/NavBar/Navbar';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
-// import {Tabs, Tab} from 'react-materialize';
-// import { Route } from 'react-router-dom';
 
 class DashboardPage extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             selectedMovie: null,
+            filteredMovies: [],
+            depScore: props.depScore
+        }
+    }
+
+    setFilteredMovies() {
+        if (this.state.depScore === null || this.state.depScore <= 4) {
+            this.setState({ filteredMovies: this.props.movies});
+        } else if (this.state.depScore >= 7) {
+            this.setState({ filteredMovies: this.props.movies.filter(m => m.levelThree)});
+        } else {
+            this.setState({ filteredMovies: this.props.movies.filter(m => m.levelOne && m.levelTwo)});
         }
     }
 
     handleSelectMovie = (id) => {
         this.setState({
             selectedMovie: this.props.movies.find(m => m._id === id),
-            // setState to filtered movies
         })
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.state.depScore !== nextProps.depScore) {
+            this.setState({
+                depScore: nextProps.depScore
+            }, this.setFilteredMovies);
+        }
+    }
+
+    componentDidMount() {
+        this.setFilteredMovies();
     }
 
     render () {
@@ -33,7 +54,7 @@ class DashboardPage extends Component {
                 </div>
                 <div className='vertical-center flex-center-center'>
                     <MovieList 
-                        movies={this.props.movies}
+                        movies={this.state.filteredMovies}
                         handleSelectMovie={this.handleSelectMovie}
                         selectedMovie={this.state.selectedMovie}
                     />
@@ -42,8 +63,6 @@ class DashboardPage extends Component {
         )
     }
 }
-
-
 
 
 export default DashboardPage;

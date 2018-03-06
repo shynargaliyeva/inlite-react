@@ -1,0 +1,10 @@
+.p4 {
+    width: 80vh;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    line-height: 30px;
+    /* hide text */
+    /* height: 3.6em;
+    overflow: hidden;
+    text-overflow: ellipsis; */
+}

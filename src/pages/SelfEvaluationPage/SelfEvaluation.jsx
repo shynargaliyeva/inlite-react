@@ -60,12 +60,6 @@ class SelfEvaluationPage extends Component {
         .catch(err => console.log(err))
     }
     /*------- Lifecycle Methods -------*/
-    componentDidMount() {
-        fetch('/api/users/selfeval')
-            .then(res => res.json())
-            .then(selfEval => {this.setState({ selfEval })})
-            .catch(err => console.log(err))
-    }
 
     render() {
         return (

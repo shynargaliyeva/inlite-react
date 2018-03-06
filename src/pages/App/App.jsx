@@ -109,6 +109,7 @@ class App extends Component {
                                 handleLogout={this.handleLogout}
                                 movies={this.state.movies}
                                 handleSelectMovie={this.handleSelectMovie}
+                                depScore={this.state.depScore}
                             />
                         :
                             <Redirect to='/' />
