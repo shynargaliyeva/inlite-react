@@ -1,10 +1,12 @@
 # Inlite
 
+![UI Screenshot](https://i.imgur.com/LOzbtL3.png)
+
 ## About
 This project was built as a recommendation engine that filters your movie recs based on a psychological analysis done by lisenced professioanls and a depression score computed from a self-evaluation test. The ultimate goal is to build the worlds first streaming entertainment platform with integrated therapeutic chatbot and make Inlite a safe place for watching movies to help manage mental health.
 
-![UI Screenshot](https://i.imgur.com/LOzbtL3.png)
 ![UI Screenshot](https://i.imgur.com/zymvIqm.png)
+![UI Screenshot](https://i.imgur.com/6oyqq3s.png)
 
 ## Built With
 * React JS
