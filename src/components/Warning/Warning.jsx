@@ -6,7 +6,9 @@ const Warning = ({selectedMovie}) => {
         <div>
             <div className='Warning-text'>
                 <h4>Who should not watch this movie</h4>
-                <p className='p4'>{selectedMovie.warning}</p>
+                <div className='p4'>
+                    <p>{selectedMovie.warning}</p>
+                </div>
             </div>
         </div>
     )

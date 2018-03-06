@@ -1,8 +1,8 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
+// import {Link} from 'react-route  r-dom';
 import './LandingPage.css';
 import NavBar from '../../components/NavBar/Navbar';
-// import { Row, Col } from 'react-materialize';
+import {Button, Link} from 'react-materialize';
 
 
 const LandingPage = (props, movies) => {
@@ -13,7 +13,16 @@ const LandingPage = (props, movies) => {
             handleLogout={props.handleLogout}
         />   
         <div className='vertical-center flex-center-center'>
-            <div className="LandingPage-tagline">Watch Movies for good</div>
+            <div className='LP-banner'>
+                <img className='LP-img' src="https://i.imgur.com/aR2Sbzm.png" alt="Laptop mockup"/>
+            </div>
+            <div className="LP-tagline">
+                <span className='LP-span1'>Watch Movies for</span><br/><span className='LP-span2'>good</span>
+            </div>
+            <div className='LP-button'>
+                {/* <Button waves="light" type="submit">GET STARTED</Button> */}
+            </div>
+
         </div>
     </div>
        

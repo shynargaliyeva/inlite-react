@@ -14,9 +14,10 @@ const MovieDetails = (props) => {
                 <img className="SelectedMovie-image" alt="Movie poster" src={props.selectedMovie.image} />
             </div>
             <div className='Movie-tab'>
-                <Tabs className='tab-MovieDetails z-depth-1'>
-                    <Tab title="Movie">
-                            <div className="Movie">
+                <Tabs className='tab-MovieDetails'>
+                    <Tab title="Movie" active>
+                        <div className='Movie-div'>
+                            <div className="mainDetails">
                                 <span className='p1'>{props.selectedMovie.title}</span><br/>
                                 <span className='span2'>{props.selectedMovie.genre} | {props.selectedMovie.runtime} | {props.selectedMovie.rating}</span>
                             </div>
@@ -25,9 +26,10 @@ const MovieDetails = (props) => {
                             </div>
                             <div>
                                 <p className='p3'>{props.selectedMovie.synopsis}</p>
+                            </div>
                         </div>
                     </Tab>
-                    <Tab title="Psychology" active>
+                    <Tab title="Psychology">
                          <Psychology selectedMovie={props.selectedMovie} />
                     </Tab>
                     <Tab title="Instructions"><Instructions /></Tab>

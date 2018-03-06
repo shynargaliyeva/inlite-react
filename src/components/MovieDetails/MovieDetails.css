@@ -3,13 +3,12 @@
     flex-flow: column nowrap;
     align-items: center;
     text-align: center;
+    margin: 0 7vw;
+    justify-content: center;
 }
 
-.SelectedMovie-image {
-    width: 80%;
-    position: relative;
-    margin: 0 auto;
-    height: 70%;    
+.flex-center-center {
+    margin-left: 7%;
 }
 
 .Movie {
@@ -42,4 +41,53 @@
     text-align: left;
     width: 80vh;
     margin-left: 23%;
+}
+
+/* Mobile styles */
+
+@media only screen and (min-width: 300px) {
+    .SelectedMovie-image {
+        width: 70%;
+        object-fit: cover;
+        object-position: 0 15%;
+        height: 40vh;
+        margin: 0 auto;
+    }  
+
+    .p3 {
+    text-align: left;
+    width: 50vh;
+    margin-left: 23%;
+}
+}
+@media only screen and (min-width: 800px) {
+    .SelectedMovie-image {
+        width: 100%;
+        object-fit: cover;
+        object-position: 0 15%;
+        height: 40vh;
+        margin: 0 auto;
+    }  
+
+    .p3 {
+    text-align: left;
+    width: 60vh;
+    margin-left: 23%;
+}
+}
+
+@media only screen and (min-width: 1200px) {
+    .SelectedMovie-image {
+        width: 100%;
+        object-fit: cover;
+        object-position: 0 15%;
+        height: 70vh;
+        margin: 0 auto;
+    }  
+
+    .p3 {
+    text-align: left;
+    width: 70vh;
+    margin-left: 23%;
+}
 }

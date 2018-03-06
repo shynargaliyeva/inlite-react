@@ -37,7 +37,6 @@ class DashboardPage extends Component {
             }, this.setFilteredMovies);
         }
     }
-
     componentDidMount() {
         this.setFilteredMovies();
     }

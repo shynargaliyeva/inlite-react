@@ -56,17 +56,19 @@ class App extends Component {
             .then(movies => this.setState({ movies }))
             .catch(err => console.log(err))
 
-        fetch('/api/users/userevals', {
-            headers: {
-                "Authorization": `Bearer ${tokenService.getToken()}`
-            }
-        }).then(res => res.json())
-        .then(evals => {
-            this.setState({
-                evals,
-                depScore: evals[evals.length - 1].depScore
-            });
-        })
+        if (user) {
+            fetch('/api/users/userevals', {
+                headers: {
+                    "Authorization": `Bearer ${tokenService.getToken()}`
+                }
+            }).then(res => res.json())
+            .then(evals => {
+                this.setState({
+                    evals,
+                    depScore: evals[evals.length - 1].depScore
+                });
+            })
+        }    
 
     }
 

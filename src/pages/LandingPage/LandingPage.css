@@ -1,8 +1,41 @@
-.LandingPage-tagline {
-    font-size: 30px;
+.LP-tagline {
+    margin-right: 90px;
+    position: relative;
+    margin-top: -5%;
+}
+
+.LP-banner {
+    width: 55vw;
+    height: 120vh;
+    margin: 0 auto;
+}
+
+.LP-img {
+    margin: 35px 0;
+    height: 110vh;
+    width: 55vw;
+}
+
+.LP-span1 {
+    font-size: 36px;
     color: #262626;
     align-content: center;
-    margin-right: 14%;
+    font-weight: bold;
+    text-transform: uppercase;
 }
+
+.LP-span2 {
+    font-size: 50px;
+    color: #262626;
+    align-content: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #FF9186;
+}
+
+.LP-button {
+    position: absolute;
+    margin-left: 26%;
+}   
 
 
