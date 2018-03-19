@@ -3,7 +3,6 @@ import './SelfEvaluationPage.css';
 import { Row, Input, Button } from 'react-materialize';
 import NavBar from '../../components/NavBar/Navbar';
 import tokenService from '../../utils/tokenService';
-// import SelfEval from '../../components/SelfEval/SelfEval';
 
 let questions = [
     "Feeling nervous, anxious, on edge?",
@@ -59,7 +58,6 @@ class SelfEvaluationPage extends Component {
         })
         .catch(err => console.log(err))
     }
-    /*------- Lifecycle Methods -------*/
 
     render() {
         return (

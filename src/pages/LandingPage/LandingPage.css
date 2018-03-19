@@ -12,8 +12,8 @@
 
 .LP-img {
     margin: 35px 0;
-    height: 110vh;
-    width: 55vw;
+    max-height: 110vh;
+    max-width: 55vw;
 }
 
 .LP-span1 {
