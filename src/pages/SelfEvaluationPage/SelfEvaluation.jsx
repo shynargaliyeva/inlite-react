@@ -68,7 +68,7 @@ class SelfEvaluationPage extends Component {
                 />  
                 <div className="SelfEval-text">
                     <h3>Self Evaluation</h3>
-                    <p className="flow-text">Over the past 2 weeks have you been bothered by these problems? <br/> 
+                    <p className="SelfEval-desc flow-text">Over the past 2 weeks have you been bothered by these problems? <br/> 
                         Answering these question will help you track your progress</p>
                 </div>
                 <div className="container">

@@ -1,5 +1,3 @@
-
-
 .SelfEval-text {
     display: flex;
     flex-flow: column nowrap;
@@ -8,9 +6,10 @@
     margin-top: 20px;
 }
 
+
 .SelfEval-form {
     margin-left: 22%;
-    width: 60vw;
+    max-width: 60vw;
 }
 
 .input-field label:not(.label-icon).active {
@@ -37,4 +36,14 @@ ul#select-options-1941ba7f-4e94-535f-e4c4-01252d1be638, li {
     align-content: center;
 } */
 
+@media only screen and (min-height: 700px) {
+    .SelfEval-form {
+        margin-top: 10%;
+    }
+}
 
+@media only screen and (min-height: 400px) {
+    .SelfEval-form {
+        margin-top: 0;
+    }
+}

@@ -5,10 +5,12 @@
     text-align: center;
     margin: 0 6vw;
     justify-content: center;
+    min-height: 100%
 }
 
 .flex-center-center {
     margin-left: 7%;
+    position: relative;
 }
 
 .Movie {
@@ -55,9 +57,9 @@
     }  
 
     .p3 {
-    text-align: left;
-    width: 50vh;
-    margin-left: 11%;
+        text-align: left;
+        width: 50vh;
+        margin-left: 11%;
     }
 }
 @media only screen and (min-width: 800px) {

@@ -2,11 +2,13 @@
   display: flex;
   flex-direction: row;
   margin: 0 0 20px;
+
 }
 
 nav .nav-wrapper {
   padding: 0 30px;
   background-color: #262626;
+  
 }
 /* .NavBar-link {
   margin: 0 10px;

@@ -29,10 +29,12 @@ class DashboardPage extends Component {
         }
         return (
             <div className="DashboardPage">
-                <NavBar
-                    user={this.props.user}
-                    handleLogout={this.props.handleLogout}
-                />
+                <div className='navbar'>
+                    <NavBar
+                        user={this.props.user}
+                        handleLogout={this.props.handleLogout}
+                    />
+                </div>
                 <div className="MovieDetails">
                     {this.state.selectedMovie && <MovieDetails selectedMovie={this.state.selectedMovie} /> } 
                 </div>
